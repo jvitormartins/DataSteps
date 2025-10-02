@@ -9,7 +9,7 @@
   <script defer src="app.js"></script>
 </head>
 <body>
-  <!-- Tela de Login -->
+  <!-- Login -->
   <div id="loginScreen" class="login-screen">
     <div class="login-container">
       <div class="login-header">
@@ -26,7 +26,7 @@
     </div>
   </div>
 
-  <!-- Aplicação Principal -->
+  <!-- Main App -->
   <div id="mainApp" class="main-app hidden">
     <!-- Header -->
     <header class="app-header">
@@ -49,9 +49,7 @@
     <!-- Progress -->
     <section class="progress-section">
       <div class="progress-info container">
-        <div>
-          <h3>Seu Progresso na Jornada</h3>
-        </div>
+        <h3>Seu Progresso na Jornada</h3>
         <div class="progress-stats">
           <div class="stat-item">
             <div id="progressPercent" class="stat-number">0%</div>
@@ -76,32 +74,127 @@
     <div class="tabs-container container">
       <nav class="tabs-nav">
         <button class="tab-button active" data-target="degrau1">Matemática</button>
-        <button class="tab-button" data-target="degrau2">Excel</button>
-        <button class="tab-button" data-target="degrau3">Python Básico</button>
-        <button class="tab-button" data-target="degrau4">Jupyter</button>
-        <button class="tab-button" data-target="degrau5">Git/GitHub</button>
-        <button class="tab-button" data-target="degrau6">SQL</button>
-        <button class="tab-button" data-target="degrau7">Python Análise</button>
-        <button class="tab-button" data-target="degrau8">Power BI</button>
-        <button class="tab-button" data-target="degrau9">Estatística</button>
-        <button class="tab-button" data-target="degrau10">Machine Learning</button>
-        <button class="tab-button" data-target="degrau11">ML Prático</button>
-        <button class="tab-button" data-target="extras">Recursos Extras</button>
+        <button class="tab-button"  data-target="degrau2">Excel</button>
+        <button class="tab-button"  data-target="degrau3">Python Básico</button>
+        <button class="tab-button"  data-target="degrau4">Jupyter</button>
+        <button class="tab-button"  data-target="degrau5">Git/GitHub</button>
+        <button class="tab-button"  data-target="degrau6">SQL</button>
+        <button class="tab-button"  data-target="degrau7">Python Análise</button>
+        <button class="tab-button"  data-target="degrau8">Power BI</button>
+        <button class="tab-button"  data-target="degrau9">Estatística</button>
+        <button class="tab-button"  data-target="degrau10">Machine Learning</button>
+        <button class="tab-button"  data-target="degrau11">ML Prático</button>
+        <button class="tab-button"  data-target="extras">Recursos Extras</button>
       </nav>
 
-      <!-- Conteúdos -->
-      <section id="degrau1" class="tab-content active"> <!-- preencher conforme modelo --> </section>
-      <section id="degrau2" class="tab-content"> </section>
-      <section id="degrau3" class="tab-content"> </section>
-      <section id="degrau4" class="tab-content"> </section>
-      <section id="degrau5" class="tab-content"> </section>
-      <section id="degrau6" class="tab-content"> </section>
-      <section id="degrau7" class="tab-content"> </section>
-      <section id="degrau8" class="tab-content"> </section>
-      <section id="degrau9" class="tab-content"> </section>
-      <section id="degrau10" class="tab-content"> </section>
-      <section id="degrau11" class="tab-content"> </section>
-      <section id="extras" class="tab-content"> </section>
+      <!-- Degrau 1 -->
+      <section id="degrau1" class="tab-content active">
+        <div class="degrau-header">
+          <h2 class="degrau-title">🔢 Degrau 1: Matemática Básica</h2>
+          <p class="degrau-description">Fundamentos matemáticos para Ciência de Dados</p>
+          <span class="tempo-estimado">⏰ 40-60h</span>
+        </div>
+        <div class="topicos-section">
+          <ul class="topicos-list">
+            <li>Estatística descritiva (média, mediana, moda, desvio padrão)</li>
+            <li>Probabilidade básica</li>
+            <li>Álgebra linear básica (vetores, matrizes)</li>
+            <li>Funções matemáticas básicas</li>
+          </ul>
+        </div>
+        <div class="recursos-section">
+          <div class="recurso-item">
+            <input type="checkbox" class="recurso-checkbox">
+            <a href="https://pt.khanacademy.org/math/statistics-probability" target="_blank" class="recurso-nome">Khan Academy - Estatística e Probabilidade</a>
+            <span class="recurso-tipo plataforma">Plataforma</span>
+          </div>
+          <div class="recurso-item">
+            <input type="checkbox" class="recurso-checkbox">
+            <a href="https://pt.khanacademy.org/math/em-mat-estatistica/x5d13d3b4b5b8c419:introducao-a-estatistica" target="_blank" class="recurso-nome">Khan Academy - Introdução à Estatística</a>
+            <span class="recurso-tipo plataforma">Plataforma</span>
+          </div>
+          <div class="recurso-item">
+            <input type="checkbox" class="recurso-checkbox">
+            <a href="https://educacao-executiva.fgv.br/cursos/online/curta-media-duracao-online/introducao-ciencia-de-dados" target="_blank" class="recurso-nome">FGV - Introdução à Ciência de Dados</a>
+            <span class="recurso-tipo curso">Curso</span>
+          </div>
+          <div class="recurso-item">
+            <input type="checkbox" class="recurso-checkbox">
+            <a href="https://www.ifmg.edu.br/.../apostila-introducao-a-estatistica-ifmg-cl.pdf" target="_blank" class="recurso-nome">IFMG - Apostila Introdução à Estatística (PDF)</a>
+            <span class="recurso-tipo pdf">PDF</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Degrau 2 -->
+      <section id="degrau2" class="tab-content">
+        <div class="degrau-header">
+          <h2 class="degrau-title">📊 Degrau 2: Excel para Análise</h2>
+          <p class="degrau-description">Dominando Excel para análise de dados</p>
+          <span class="tempo-estimado">⏰ 30-40h</span>
+        </div>
+        <div class="topicos-section">
+          <ul class="topicos-list">
+            <li>Formatação e organização de dados</li>
+            <li>Fórmulas (PROCV, SE, CONT.SE)</li>
+            <li>Tabelas dinâmicas</li>
+            <li>Gráficos e visualizações básicas</li>
+            <li>Análise de dados no Excel</li>
+          </ul>
+        </div>
+        <div class="recursos-section">
+          <div class="recurso-item">
+            <input type="checkbox" class="recurso-checkbox">
+            <a href="https://educacao-executiva.fgv.br/.../excel-para-ciencia-de-dados-basico" target="_blank" class="recurso-nome">FGV - Excel para Ciência de Dados – Básico</a>
+            <span class="recurso-tipo curso">Curso</span>
+          </div>
+          <div class="recurso-item">
+            <input type="checkbox" class="recurso-checkbox">
+            <a href="https://www.youtube.com/watch?v=S1_ClacUPoI" target="_blank" class="recurso-nome">YouTube - Análise em Excel para Iniciantes</a>
+            <span class="recurso-tipo video">Vídeo</span>
+          </div>
+          <div class="recurso-item">
+            <input type="checkbox" class="recurso-checkbox">
+            <a href="https://www.preditiva.ai/curso-excel-gratuito" target="_blank" class="recurso-nome">Preditiva.ai - Curso Excel gratuito</a>
+            <span class="recurso-tipo curso">Curso</span>
+          </div>
+          <div class="recurso-item">
+            <input type="checkbox" class="recurso-checkbox">
+            <a href="https://www.ev.org.br/cursos/excel-na-pratica" target="_blank" class="recurso-nome">Fundação Bradesco - Excel na Prática</a>
+            <span class="recurso-tipo curso">Curso</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Degrau 3 -->
+      <section id="degrau3" class="tab-content">
+        <div class="degrau-header">
+          <h2 class="degrau-title">🐍 Degrau 3: Python Básico</h2>
+          <p class="degrau-description">Primeiros passos em Python</p>
+          <span class="tempo-estimado">⏰ 50-70h</span>
+        </div>
+        <div class="topicos-section">
+          <ul class="topicos-list">
+            <li>Sintaxe básica</li>
+            <li>Variáveis e tipos</li>
+            <li>Controle de fluxo (if/for/while)</li>
+            <li>Funções</li>
+            <li>Listas e strings</li>
+          </ul>
+        </div>
+        <div class="recursos-section">
+          <div class="recurso-item">
+            <input type="checkbox" class="recurso-checkbox">
+            <a href="https://www.cursoemvideo.com/curso/python-3-mundo-1/" target="_blank" class="recurso-nome">Curso em Vídeo - Python Mundo 1</a>
+            <span class="recurso-tipo curso">Curso</span>
+          </div>
+          <!-- demais recursos do degrau3 -->
+        </div>
+      </section>
+
+      <!-- Repita para degrau4 até degrau11 e extras -->
+      <!-- ... -->
+
     </div>
 
     <!-- Footer -->
