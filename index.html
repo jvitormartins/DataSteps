@@ -18,10 +18,8 @@
         <p>Digite a senha para acessar o conteúdo exclusivo</p>
       </div>
       <form id="loginForm" class="login-form">
-        <div class="form-group">
-          <label for="password" class="form-label">Senha de Acesso</label>
-          <input type="password" id="password" class="form-control" placeholder="Digite sua senha" />
-        </div>
+        <label for="password" class="form-label">Senha de Acesso</label>
+        <input type="password" id="password" class="form-control" placeholder="Digite sua senha" />
         <button type="submit" class="btn btn--primary btn--full-width">Entrar na Plataforma</button>
         <div id="loginError" class="login-error hidden">Senha incorreta. Tente novamente.</div>
       </form>
@@ -32,79 +30,83 @@
   <div id="mainApp" class="main-app hidden">
     <!-- Header -->
     <header class="app-header">
-      <div class="container">
-        <div class="header-content">
-          <div class="logo-section">
-            <h1>📊 DataSteps</h1>
-            <span class="subtitle">Degrau por degrau rumo ao seu futuro em dados</span>
+      <div class="container header-content">
+        <div>
+          <h1>📊 DataSteps</h1>
+          <span class="subtitle">Degrau por degrau rumo ao seu futuro em dados</span>
+        </div>
+        <div class="controls">
+          <div class="study-timer">
+            <span class="timer-label">⏱️</span>
+            <span id="timerDisplay" class="timer-display">00:00:00</span>
+            <button id="timerBtn" class="btn btn--sm btn--secondary">Iniciar</button>
           </div>
-          <div class="header-controls">
-            <div class="study-timer">
-              <span class="timer-label">⏱️ Estudos:</span>
-              <span id="timerDisplay" class="timer-display">00:00:00</span>
-              <button id="timerBtn" class="btn btn--sm btn--secondary">Iniciar</button>
-            </div>
-            <button id="darkModeBtn" class="btn btn--sm btn--secondary">🌙 Modo Escuro</button>
-          </div>
+          <button id="darkModeBtn" class="btn btn--icon">🌙</button>
         </div>
       </div>
     </header>
 
-    <!-- Seção de Progresso -->
+    <!-- Progress -->
     <section class="progress-section">
-      <div class="progress-info">
-        <h3>Seu Progresso na Jornada</h3>
+      <div class="progress-info container">
+        <div>
+          <h3>Seu Progresso na Jornada</h3>
+        </div>
         <div class="progress-stats">
           <div class="stat-item">
-            <div class="stat-number" id="progressPercent">0%</div>
+            <div id="progressPercent" class="stat-number">0%</div>
             <div class="stat-label">Concluído</div>
           </div>
           <div class="stat-item">
-            <div class="stat-number" id="completedItems">0</div>
+            <div id="completedItems" class="stat-number">0</div>
             <div class="stat-label">Recursos</div>
           </div>
           <div class="stat-item">
-            <div class="stat-number" id="totalStudyTime">0h</div>
+            <div id="totalStudyTime" class="stat-number">0h</div>
             <div class="stat-label">Estudadas</div>
           </div>
         </div>
       </div>
       <div class="progress-bar-container">
-        <div class="progress-bar" id="progressBar" style="width: 0%"></div>
+        <div id="progressBar" class="progress-bar" style="width:0%"></div>
       </div>
     </section>
 
     <!-- Tabs -->
-    <div class="tabs-container">
+    <div class="tabs-container container">
       <nav class="tabs-nav">
-        <button class="tab-button active" data-target="degrau1">🔢 Matemática</button>
-        <button class="tab-button" data-target="degrau2">📊 Excel</button>
-        <button class="tab-button" data-target="degrau3">🐍 Python Básico</button>
-        <button class="tab-button" data-target="degrau4">📓 Jupyter</button>
-        <button class="tab-button" data-target="degrau5">🔧 Git/GitHub</button>
-        <button class="tab-button" data-target="degrau6">🗄️ SQL</button>
-        <button class="tab-button" data-target="degrau7">🐍 Python Análise</button>
-        <button class="tab-button" data-target="degrau8">📈 Power BI</button>
-        <button class="tab-button" data-target="degrau9">📈 Estatística Avançada</button>
-        <button class="tab-button" data-target="degrau10">🤖 Machine Learning</button>
-        <button class="tab-button" data-target="degrau11">🚀 ML Prático</button>
-        <button class="tab-button" data-target="extras">🎯 Recursos Extras</button>
+        <button class="tab-button active" data-target="degrau1">Matemática</button>
+        <button class="tab-button" data-target="degrau2">Excel</button>
+        <button class="tab-button" data-target="degrau3">Python Básico</button>
+        <button class="tab-button" data-target="degrau4">Jupyter</button>
+        <button class="tab-button" data-target="degrau5">Git/GitHub</button>
+        <button class="tab-button" data-target="degrau6">SQL</button>
+        <button class="tab-button" data-target="degrau7">Python Análise</button>
+        <button class="tab-button" data-target="degrau8">Power BI</button>
+        <button class="tab-button" data-target="degrau9">Estatística</button>
+        <button class="tab-button" data-target="degrau10">Machine Learning</button>
+        <button class="tab-button" data-target="degrau11">ML Prático</button>
+        <button class="tab-button" data-target="extras">Recursos Extras</button>
       </nav>
 
-      <!-- Conteúdo de cada aba aqui -->
-      <section id="degrau1" class="tab-content active">
-        <!-- Conteúdo Degrau 1 -->
-      </section>
-      <section id="degrau2" class="tab-content">
-        <!-- Conteúdo Degrau 2 -->
-      </section>
-      <!-- ... até degrau11 e extras ... -->
-
+      <!-- Conteúdos -->
+      <section id="degrau1" class="tab-content active"> <!-- preencher conforme modelo --> </section>
+      <section id="degrau2" class="tab-content"> </section>
+      <section id="degrau3" class="tab-content"> </section>
+      <section id="degrau4" class="tab-content"> </section>
+      <section id="degrau5" class="tab-content"> </section>
+      <section id="degrau6" class="tab-content"> </section>
+      <section id="degrau7" class="tab-content"> </section>
+      <section id="degrau8" class="tab-content"> </section>
+      <section id="degrau9" class="tab-content"> </section>
+      <section id="degrau10" class="tab-content"> </section>
+      <section id="degrau11" class="tab-content"> </section>
+      <section id="extras" class="tab-content"> </section>
     </div>
 
-    <!-- Rodapé -->
+    <!-- Footer -->
     <footer class="footer">
-      <p>Desenvolvido por: <em>J. Vitor Martins</em> • 2025</p>
+      <p>Desenvolvido por: <em>J. Vitor Martins</em></p>
     </footer>
   </div>
 </body>
