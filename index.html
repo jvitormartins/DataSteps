@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <base href="./">
   <title>DataSteps - Plataforma de Estudos em Ciência de Dados</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
   <script defer src="app.js"></script>
 </head>
 <body>
-  <!-- Login -->
+  <!-- Tela de Login -->
   <div id="loginScreen" class="login-screen">
     <div class="login-container">
       <div class="login-header">
@@ -19,254 +19,971 @@
       </div>
       <form id="loginForm" class="login-form">
         <label for="password" class="form-label">Senha de Acesso</label>
-        <input type="password" id="password" class="form-control" placeholder="Digite sua senha" />
+        <input type="password" id="password" class="form-control" placeholder="Digite sua senha">
         <button type="submit" class="btn btn--primary btn--full-width">Entrar na Plataforma</button>
         <div id="loginError" class="login-error hidden">Senha incorreta. Tente novamente.</div>
       </form>
     </div>
   </div>
 
-  <!-- Main App -->
+  <!-- Aplicação Principal -->
   <div id="mainApp" class="main-app hidden">
     <!-- Header -->
     <header class="app-header">
-      <div class="container header-content">
-        <div>
-          <h1>📊 DataSteps</h1>
-          <span class="subtitle">Degrau por degrau rumo ao seu futuro em dados</span>
-        </div>
-        <div class="controls">
-          <div class="study-timer">
-            <span class="timer-label">⏱️</span>
-            <span id="timerDisplay" class="timer-display">00:00:00</span>
-            <button id="timerBtn" class="btn btn--sm btn--secondary">Iniciar</button>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo-section">
+            <h1>📊 DataSteps</h1>
+            <span class="subtitle">Degrau por degrau rumo ao seu futuro em dados</span>
           </div>
-          <button id="darkModeBtn" class="btn btn--icon">🌙</button>
+          <div class="header-controls">
+            <div class="study-timer">
+              <span class="timer-label">⏱️</span>
+              <span id="timerDisplay" class="timer-display">00:00:00</span>
+              <button id="timerBtn" class="btn btn--timer">Iniciar</button>
+            </div>
+            <button id="darkModeBtn" class="btn btn--dark">🌙</button>
+          </div>
         </div>
       </div>
     </header>
 
-    <!-- Progress -->
+    <!-- Seção de Progresso -->
     <section class="progress-section">
-      <div class="progress-info container">
-        <h3>Seu Progresso na Jornada</h3>
-        <div class="progress-stats">
-          <div class="stat-item">
-            <div id="progressPercent" class="stat-number">0%</div>
-            <div class="stat-label">Concluído</div>
-          </div>
-          <div class="stat-item">
-            <div id="completedItems" class="stat-number">0</div>
-            <div class="stat-label">Recursos</div>
-          </div>
-          <div class="stat-item">
-            <div id="totalStudyTime" class="stat-number">0h</div>
-            <div class="stat-label">Estudadas</div>
+      <div class="container">
+        <div class="progress-info">
+          <h3>Seu Progresso na Jornada</h3>
+          <div class="progress-stats">
+            <div class="stat-item">
+              <div id="progressPercent" class="stat-number">0%</div>
+              <div class="stat-label">Concluído</div>
+            </div>
+            <div class="stat-item">
+              <div id="completedItems" class="stat-number">0</div>
+              <div class="stat-label">Recursos</div>
+            </div>
+            <div class="stat-item">
+              <div id="totalStudyTime" class="stat-number">0h</div>
+              <div class="stat-label">Estudadas</div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="progress-bar-container">
-        <div id="progressBar" class="progress-bar" style="width:0%"></div>
+        <div class="progress-bar-container">
+          <div id="progressBar" class="progress-bar" style="width: 0%"></div>
+        </div>
       </div>
     </section>
 
-    <!-- Tabs -->
-    <div class="tabs-container container">
-      <nav class="tabs-nav">
-        <button class="tab-button active" data-target="degrau1">Matemática</button>
-        <button class="tab-button" data-target="degrau2">Excel</button>
-        <button class="tab-button" data-target="degrau3">Python Básico</button>
-        <button class="tab-button" data-target="degrau4">Jupyter</button>
-        <button class="tab-button" data-target="degrau5">Git/GitHub</button>
-        <button class="tab-button" data-target="degrau6">SQL</button>
-        <button class="tab-button" data-target="degrau7">Python Análise</button>
-        <button class="tab-button" data-target="degrau8">Power BI</button>
-        <button class="tab-button" data-target="degrau9">Estatística</button>
-        <button class="tab-button" data-target="degrau10">Machine Learning</button>
-        <button class="tab-button" data-target="degrau11">ML Prático</button>
-        <button class="tab-button" data-target="extras">Recursos Extras</button>
-      </nav>
+    <!-- Sistema de Abas -->
+    <div class="tabs-container">
+      <div class="container">
+        <nav class="tabs-nav">
+          <button class="tab-button active" data-target="degrau1">Matemática</button>
+          <button class="tab-button" data-target="degrau2">Excel</button>
+          <button class="tab-button" data-target="degrau3">Python Básico</button>
+          <button class="tab-button" data-target="degrau4">Jupyter</button>
+          <button class="tab-button" data-target="degrau5">Git/GitHub</button>
+          <button class="tab-button" data-target="degrau6">SQL</button>
+          <button class="tab-button" data-target="degrau7">Python Análise</button>
+          <button class="tab-button" data-target="degrau8">Power BI</button>
+          <button class="tab-button" data-target="degrau9">Estatística</button>
+          <button class="tab-button" data-target="degrau10">Machine Learning</button>
+          <button class="tab-button" data-target="degrau11">ML Prático</button>
+          <button class="tab-button" data-target="extras">Recursos Extras</button>
+        </nav>
 
-      <!-- Degrau 1 -->
-      <section id="degrau1" class="tab-content active">
-        <div class="degrau-header">
-          <h2 class="degrau-title">🔢 Degrau 1: Matemática Básica</h2>
-          <p class="degrau-description">Fundamentos matemáticos para Ciência de Dados</p>
-          <span class="tempo-estimado">⏰ 40-60h</span>
-        </div>
-        <div class="topicos-section">
-          <ul class="topicos-list">
-            <li>Estatística descritiva (média, mediana, moda, desvio padrão)</li>
-            <li>Probabilidade básica</li>
-            <li>Álgebra linear básica (vetores, matrizes)</li>
-            <li>Funções matemáticas básicas</li>
-          </ul>
-        </div>
-        <div class="recursos-section">
-          <div class="recurso-item">
-            <input type="checkbox" class="recurso-checkbox">
-            <a href="https://pt.khanacademy.org/math/statistics-probability" target="_blank" class="recurso-nome">Khan Academy - Estatística e Probabilidade</a>
-            <span class="recurso-tipo plataforma">Plataforma</span>
+        <!-- Conteúdo das Abas -->
+        
+        <!-- Degrau 1: Matemática Básica -->
+        <section id="degrau1" class="tab-content active">
+          <div class="degrau-header">
+            <h2 class="degrau-title">🔢 Degrau 1: Matemática Básica</h2>
+            <p class="degrau-description">Fundamentos matemáticos para Ciência de Dados</p>
+            <span class="tempo-estimado">⏰ 40-60 horas</span>
           </div>
-          <div class="recurso-item">
-            <input type="checkbox" class="recurso-checkbox">
-            <a href="https://pt.khanacademy.org/math/em-mat-estatistica/x5d13d3b4b5b8c419:introducao-a-estatistica" target="_blank" class="recurso-nome">Khan Academy - Introdução à Estatística</a>
-            <span class="recurso-tipo plataforma">Plataforma</span>
+          
+          <div class="topicos-section">
+            <h3 class="section-title">📚 O que você vai aprender:</h3>
+            <ul class="topicos-list">
+              <li>Estatística descritiva (média, mediana, moda, desvio padrão)</li>
+              <li>Probabilidade básica</li>
+              <li>Álgebra linear básica (vetores, matrizes)</li>
+              <li>Funções matemáticas básicas</li>
+            </ul>
           </div>
-          <div class="recurso-item">
-            <input type="checkbox" class="recurso-checkbox">
-            <a href="https://educacao-executiva.fgv.br/cursos/online/curta-media-duracao-online/introducao-ciencia-de-dados" target="_blank" class="recurso-nome">FGV - Introdução à Ciência de Dados</a>
-            <span class="recurso-tipo curso">Curso</span>
-          </div>
-          <div class="recurso-item">
-            <input type="checkbox" class="recurso-checkbox">
-            <a href="https://www.ifmg.edu.br/conselheirolafaiete/noticias/anexos-noticias/apostila-introducao-a-estatistica-ifmg-cl.pdf" target="_blank" class="recurso-nome">IFMG - Apostila Introdução à Estatística (PDF)</a>
-            <span class="recurso-tipo pdf">PDF</span>
-          </div>
-        </div>
-      </section>
 
-      <!-- Degrau 2 -->
-      <section id="degrau2" class="tab-content">
-        <div class="degrau-header">
-          <h2 class="degrau-title">📊 Degrau 2: Excel para Análise</h2>
-          <p class="degrau-description">Dominando Excel para análise de dados</p>
-          <span class="tempo-estimado">⏰ 30-40h</span>
-        </div>
-        <div class="topicos-section">
-          <ul class="topicos-list">
-            <li>Formatação e organização de dados</li>
-            <li>Fórmulas (PROCV, SE, CONT.SE)</li>
-            <li>Tabelas dinâmicas</li>
-            <li>Gráficos e visualizações básicas</li>
-            <li>Análise de dados no Excel</li>
-          </ul>
-        </div>
-        <div class="recursos-section">
-          <div class="recurso-item">
-            <input type="checkbox" class="recurso-checkbox">
-            <a href="https://educacao-executiva.fgv.br/cursos/online/curta-media-duracao-online/excel-para-ciencia-de-dados-basico" target="_blank" class="recurso-nome">FGV - Excel para Ciência de Dados: Básico</a>
-            <span class="recurso-tipo curso">Curso</span>
-          </div>
-          <div class="recurso-item">
-            <input type="checkbox" class="recurso-checkbox">
-            <a href="https://www.youtube.com/watch?v=S1_ClacUPoI" target="_blank" class="recurso-nome">YouTube - Análise de Dados no Excel para Iniciantes</a>
-            <span class="recurso-tipo video">Vídeo</span>
-          </div>
-          <div class="recurso-item">
-            <input type="checkbox" class="recurso-checkbox">
-            <a href="https://www.preditiva.ai/curso-excel-gratuito" target="_blank" class="recurso-nome">Preditiva.ai: Curso Excel Gratuito</a>
-            <span class="recurso-tipo curso">Curso</span>
-          </div>
-          <div class="recurso-item">
-            <input type="checkbox" class="recurso-checkbox">
-            <a href="https://www.ev.org.br/cursos/excel-na-pratica" target="_blank" class="recurso-nome">Fundação Bradesco: Excel na Prática</a>
-            <span class="recurso-tipo curso">Curso</span>
-          </div>
-        </div>
-      </section>
+          <div class="recursos-section">
+            <h3 class="section-title">🎯 Recursos para Estudar:</h3>
+            
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://pt.khanacademy.org/math/statistics-probability" target="_blank" class="recurso-nome">Khan Academy - Estatística e Probabilidade</a>
+                  <span class="recurso-tipo plataforma">Plataforma</span>
+                </div>
+              </div>
+            </div>
 
-      <!-- Degrau 3 -->
-      <section id="degrau3" class="tab-content">
-        <div class="degrau-header">
-          <h2 class="degrau-title">🐍 Degrau 3: Python Básico</h2>
-          <p class="degrau-description">Primeiros passos na programação em Python</p>
-          <span class="tempo-estimado">⏰ 50-70h</span>
-        </div>
-        <div class="topicos-section">
-          <ul class="topicos-list">
-            <li>Sintaxe básica do Python</li>
-            <li>Variáveis e tipos de dados</li>
-            <li>Estruturas de controle (if, for, while)</li>
-            <li>Funções básicas</li>
-            <li>Manipulação de listas e strings</li>
-          </ul>
-        </div>
-        <div class="recursos-section">
-          <div class="recurso-item">
-            <input type="checkbox" class="recurso-checkbox">
-            <a href="https://www.cursoemvideo.com/curso/python-3-mundo-1/" target="_blank" class="recurso-nome">Curso em Vídeo - Python 3 Mundo 1</a>
-            <span class="recurso-tipo curso">Curso</span>
-          </div>
-          <div class="recurso-item">
-            <input type="checkbox" class="recurso-checkbox">
-            <a href="https://www.youtube.com/watch?v=31llNGKWDdo" target="_blank" class="recurso-nome">YouTube - Python #04: Primeiros comandos</a>
-            <span class="recurso-tipo video">Vídeo</span>
-          </div>
-          <div class="recurso-item">
-            <input type="checkbox" class="recurso-checkbox">
-            <a href="https://www.youtube.com/watch?v=nJkVHusJp6E" target="_blank" class="recurso-nome">YouTube - Python Mundo 02</a>
-            <span class="recurso-tipo video">Vídeo</span>
-          </div>
-          <div class="recurso-item">
-            <input type="checkbox" class="recurso-checkbox">
-            <a href="https://www.cursoemvideo.com/curso/python-3-mundo-3/" target="_blank" class="recurso-nome">Curso em Vídeo - Python 3 Mundo 3</a>
-            <span class="recurso-tipo curso">Curso</span>
-          </div>
-          <div class="recurso-item">
-            <input type="checkbox" class="recurso-checkbox">
-            <a href="https://developers.google.com/edu/python?hl=pt-br" target="_blank" class="recurso-nome">Google - Aula de Python</a>
-            <span class="recurso-tipo tutorial">Tutorial</span>
-          </div>
-          <div class="recurso-item">
-            <input type="checkbox" class="recurso-checkbox">
-            <a href="https://python.org.br/introducao/" target="_blank" class="recurso-nome">Python.org - Introdução</a>
-            <span class="recurso-tipo tutorial">Tutorial</span>
-          </div>
-          <div class="recurso-item">
-            <input type="checkbox" class="recurso-checkbox">
-            <a href="https://www.escolavirtual.gov.br/curso/629" target="_blank" class="recurso-nome">Escola Virtual Gov - Aprendendo Python</a>
-            <span class="recurso-tipo curso">Curso</span>
-          </div>
-        </div>
-      </section>
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://pt.khanacademy.org/math/em-mat-estatistica/x5d13d3b4b5b8c419:introducao-a-estatistica" target="_blank" class="recurso-nome">Khan Academy - Introdução à estatística</a>
+                  <span class="recurso-tipo plataforma">Plataforma</span>
+                </div>
+              </div>
+            </div>
 
-      <!-- Degrau 4 -->
-      <section id="degrau4" class="tab-content">
-        <div class="degrau-header">
-          <h2 class="degrau-title">📓 Degrau 4: Jupyter Notebook</h2>
-          <p class="degrau-description">Ambiente de Desenvolvimento para Data Science</p>
-          <span class="tempo-estimado">⏰ 15-20h</span>
-        </div>
-        <div class="topicos-section">
-          <ul class="topicos-list">
-            <li>Instalação do Anaconda</li>
-            <li>Interface do Jupyter Notebook</li>
-            <li>Células de código e Markdown</li>
-            <li>Execução e organização de notebooks</li>
-          </ul>
-        </div>
-        <div class="recursos-section">
-          <div class="recurso-item">
-            <input type="checkbox" class="recurso-checkbox">
-            <a href="https://www.youtube.com/watch?v=2WL-XTl2QYI" target="_blank" class="recurso-nome">YouTube - Jupyter Notebook para Iniciantes</a>
-            <span class="recurso-tipo video">Vídeo</span>
-          </div>
-          <div class="recurso-item">
-            <input type="checkbox" class="recurso-checkbox">
-            <a href="https://jupyter.org" target="_blank" class="recurso-nome">Jupyter.org - Documentação Oficial</a>
-            <span class="recurso-tipo documentação">Documentação</span>
-          </div>
-          <div class="recurso-item">
-            <input type="checkbox" class="recurso-checkbox">
-            <a href="https://www.alura.com.br/artigos/conhecendo-o-jupyter-notebook" target="_blank" class="recurso-nome">Alura - Exemplos de Jupyter Notebook</a>
-            <span class="recurso-tipo artigo">Artigo</span>
-          </div>
-          <div class="recurso-item">
-            <input type="checkbox" class="recurso-checkbox">
-            <a href="https://indico.rnp.br/.../Tutorial_de_Jupyter_Notebook.pdf" target="_blank" class="recurso-nome">Tutorial RNP - Jupyter Notebook (PDF)</a>
-            <span class="recurso-tipo pdf">PDF</span>
-          </div>
-        </div>
-      </section>
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://educacao-executiva.fgv.br/cursos/online/curta-media-duracao-online/introducao-ciencia-de-dados" target="_blank" class="recurso-nome">FGV - Introdução à Ciência de Dados</a>
+                  <span class="recurso-tipo curso">Curso</span>
+                </div>
+              </div>
+            </div>
 
-      <!-- Continue preenchendo degrau5 a degrau11 e extras -->
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://www.ifmg.edu.br/conselheirolafaiete/noticias/anexos-noticias/apostila-introducao-a-estatistica-ifmg-cl.pdf" target="_blank" class="recurso-nome">IFMG - Apostila Introdução à Estatística (PDF)</a>
+                  <span class="recurso-tipo pdf">PDF</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
+        <!-- Degrau 2: Excel -->
+        <section id="degrau2" class="tab-content">
+          <div class="degrau-header">
+            <h2 class="degrau-title">📊 Degrau 2: Excel para Análise</h2>
+            <p class="degrau-description">Dominando Excel para análise de dados</p>
+            <span class="tempo-estimado">⏰ 30-40 horas</span>
+          </div>
+          
+          <div class="topicos-section">
+            <h3 class="section-title">📚 O que você vai aprender:</h3>
+            <ul class="topicos-list">
+              <li>Formatação e organização de dados</li>
+              <li>Fórmulas básicas e avançadas (PROCV, SE, CONT.SE)</li>
+              <li>Tabelas dinâmicas</li>
+              <li>Gráficos e visualizações básicas</li>
+              <li>Análise de dados no Excel</li>
+            </ul>
+          </div>
+
+          <div class="recursos-section">
+            <h3 class="section-title">🎯 Recursos para Estudar:</h3>
+            
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://educacao-executiva.fgv.br/cursos/online/curta-media-duracao-online/excel-para-ciencia-de-dados-basico" target="_blank" class="recurso-nome">FGV - Excel para Ciência de Dados – Básico</a>
+                  <span class="recurso-tipo curso">Curso</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://www.youtube.com/watch?v=S1_ClacUPoI" target="_blank" class="recurso-nome">YouTube - Análise de Dados no Excel para Iniciantes</a>
+                  <span class="recurso-tipo video">Vídeo</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://www.preditiva.ai/curso-excel-gratuito" target="_blank" class="recurso-nome">Preditiva.ai - Curso Excel gratuito com certificado</a>
+                  <span class="recurso-tipo curso">Curso</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://www.ev.org.br/cursos/excel-na-pratica" target="_blank" class="recurso-nome">Fundação Bradesco - Excel na Prática</a>
+                  <span class="recurso-tipo curso">Curso</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Degrau 3: Python Básico -->
+        <section id="degrau3" class="tab-content">
+          <div class="degrau-header">
+            <h2 class="degrau-title">🐍 Degrau 3: Python Básico</h2>
+            <p class="degrau-description">Primeiros passos na programação Python</p>
+            <span class="tempo-estimado">⏰ 50-70 horas</span>
+          </div>
+          
+          <div class="topicos-section">
+            <h3 class="section-title">📚 O que você vai aprender:</h3>
+            <ul class="topicos-list">
+              <li>Sintaxe básica do Python</li>
+              <li>Variáveis e tipos de dados</li>
+              <li>Estruturas de controle (if, for, while)</li>
+              <li>Funções básicas</li>
+              <li>Manipulação de strings e listas</li>
+            </ul>
+          </div>
+
+          <div class="recursos-section">
+            <h3 class="section-title">🎯 Recursos para Estudar:</h3>
+            
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://www.cursoemvideo.com/curso/python-3-mundo-1/" target="_blank" class="recurso-nome">Curso em Vídeo - Python 3 Mundo 1</a>
+                  <span class="recurso-tipo curso">Curso</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://www.youtube.com/watch?v=31llNGKWDdo" target="_blank" class="recurso-nome">YouTube - Curso Python #04 - Primeiros comandos</a>
+                  <span class="recurso-tipo video">Vídeo</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://www.youtube.com/watch?v=nJkVHusJp6E" target="_blank" class="recurso-nome">YouTube - Python Mundo 02</a>
+                  <span class="recurso-tipo video">Vídeo</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://www.cursoemvideo.com/curso/python-3-mundo-3/" target="_blank" class="recurso-nome">Curso em Vídeo - Python 3 Mundo 3</a>
+                  <span class="recurso-tipo curso">Curso</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://developers.google.com/edu/python?hl=pt-br" target="_blank" class="recurso-nome">Google - Aula de Python do Google</a>
+                  <span class="recurso-tipo tutorial">Tutorial</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://python.org.br/introducao/" target="_blank" class="recurso-nome">Python.org - Tutorial oficial em português</a>
+                  <span class="recurso-tipo tutorial">Tutorial</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://www.escolavirtual.gov.br/curso/629" target="_blank" class="recurso-nome">Escola Virtual Gov - Aprendendo com Python</a>
+                  <span class="recurso-tipo curso">Curso</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Degrau 4: Jupyter Notebook -->
+        <section id="degrau4" class="tab-content">
+          <div class="degrau-header">
+            <h2 class="degrau-title">📓 Degrau 4: Jupyter Notebook</h2>
+            <p class="degrau-description">Ambiente de desenvolvimento para Data Science</p>
+            <span class="tempo-estimado">⏰ 15-20 horas</span>
+          </div>
+          
+          <div class="topicos-section">
+            <h3 class="section-title">📚 O que você vai aprender:</h3>
+            <ul class="topicos-list">
+              <li>Instalação do Anaconda</li>
+              <li>Interface do Jupyter Notebook</li>
+              <li>Células de código e markdown</li>
+              <li>Execução e organização de notebooks</li>
+            </ul>
+          </div>
+
+          <div class="recursos-section">
+            <h3 class="section-title">🎯 Recursos para Estudar:</h3>
+            
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://www.youtube.com/watch?v=2WL-XTl2QYI" target="_blank" class="recurso-nome">YouTube - Jupyter Notebook Tutorial for Beginners</a>
+                  <span class="recurso-tipo video">Vídeo</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://jupyter.org" target="_blank" class="recurso-nome">Jupyter.org - Documentação oficial</a>
+                  <span class="recurso-tipo documentacao">Documentação</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://www.alura.com.br/artigos/conhecendo-o-jupyter-notebook" target="_blank" class="recurso-nome">Alura - Jupyter Notebook: Exemplos de Códigos</a>
+                  <span class="recurso-tipo artigo">Artigo</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://indico.rnp.br/event/21/contributions/195/attachments/109/185/Tutorial_de_Jupyter_Notebook_-_RNP_-_Infraestrutura.pdf" target="_blank" class="recurso-nome">Tutorial RNP - Jupyter Notebook (PDF)</a>
+                  <span class="recurso-tipo pdf">PDF</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Degrau 5: Git e GitHub -->
+        <section id="degrau5" class="tab-content">
+          <div class="degrau-header">
+            <h2 class="degrau-title">🔧 Degrau 5: Git e GitHub</h2>
+            <p class="degrau-description">Controle de versão e colaboração</p>
+            <span class="tempo-estimado">⏰ 20-30 horas</span>
+          </div>
+          
+          <div class="topicos-section">
+            <h3 class="section-title">📚 O que você vai aprender:</h3>
+            <ul class="topicos-list">
+              <li>Conceitos de controle de versão</li>
+              <li>Comandos básicos do Git (init, add, commit, push, pull)</li>
+              <li>Criação de repositórios no GitHub</li>
+              <li>Clonagem e colaboração em projetos</li>
+            </ul>
+          </div>
+
+          <div class="recursos-section">
+            <h3 class="section-title">🎯 Recursos para Estudar:</h3>
+            
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://www.youtube.com/watch?v=_hZf1teRFNg" target="_blank" class="recurso-nome">YouTube - Git e Github Tutorial completo</a>
+                  <span class="recurso-tipo video">Vídeo</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://www.youtube.com/watch?v=sIahy_vrYLU" target="_blank" class="recurso-nome">YouTube - GitHub Como Usar - Tutorial para Iniciantes</a>
+                  <span class="recurso-tipo video">Vídeo</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://www.freecodecamp.org/portuguese/news/tutorial-de-git-e-github-controle-de-versao-para-iniciantes/" target="_blank" class="recurso-nome">FreeCodeCamp - Tutorial de Git e GitHub</a>
+                  <span class="recurso-tipo tutorial">Tutorial</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://docs.github.com/pt/get-started/start-your-journey/hello-world" target="_blank" class="recurso-nome">GitHub - Tutorial oficial Olá, Mundo</a>
+                  <span class="recurso-tipo tutorial">Tutorial</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://www.alura.com.br/artigos/o-que-e-git-github" target="_blank" class="recurso-nome">Alura - O que é Git e Github</a>
+                  <span class="recurso-tipo artigo">Artigo</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://rogerdudler.github.io/git-guide/index.pt_BR.html" target="_blank" class="recurso-nome">Git Guide - Guia prático</a>
+                  <span class="recurso-tipo guia">Guia</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Degrau 6: SQL -->
+        <section id="degrau6" class="tab-content">
+          <div class="degrau-header">
+            <h2 class="degrau-title">🗄️ Degrau 6: SQL para Dados</h2>
+            <p class="degrau-description">Linguagem de consulta para bancos de dados</p>
+            <span class="tempo-estimado">⏰ 40-50 horas</span>
+          </div>
+          
+          <div class="topicos-section">
+            <h3 class="section-title">📚 O que você vai aprender:</h3>
+            <ul class="topicos-list">
+              <li>Conceitos de bancos de dados relacionais</li>
+              <li>Comandos básicos (SELECT, WHERE, ORDER BY, GROUP BY)</li>
+              <li>Joins entre tabelas</li>
+              <li>Funções de agregação (COUNT, SUM, AVG)</li>
+              <li>Criação e manipulação de tabelas</li>
+            </ul>
+          </div>
+
+          <div class="recursos-section">
+            <h3 class="section-title">🎯 Recursos para Estudar:</h3>
+            
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://www.youtube.com/watch?v=6M-jFECiHog" target="_blank" class="recurso-nome">YouTube - Curso SQL para Iniciantes</a>
+                  <span class="recurso-tipo video">Vídeo</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://www.youtube.com/watch?v=KOhd3R5kLks" target="_blank" class="recurso-nome">YouTube - Curso Completo de SQL com SQL Server</a>
+                  <span class="recurso-tipo video">Vídeo</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://pt.khanacademy.org/computing/computer-programming/sql" target="_blank" class="recurso-nome">Khan Academy - Introdução a SQL</a>
+                  <span class="recurso-tipo curso">Curso</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://www.datahackers.news/p/10-formas-de-aprender-sql-gratuitamente" target="_blank" class="recurso-nome">Data Hackers - 10 formas de aprender SQL</a>
+                  <span class="recurso-tipo artigo">Artigo</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://www.devmedia.com.br/guia/guia-completo-de-sql/38314" target="_blank" class="recurso-nome">DevMedia - Guia Completo de SQL</a>
+                  <span class="recurso-tipo guia">Guia</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Degrau 7: Python para Análise -->
+        <section id="degrau7" class="tab-content">
+          <div class="degrau-header">
+            <h2 class="degrau-title">🐍 Degrau 7: Python para Análise</h2>
+            <p class="degrau-description">Bibliotecas Python para análise de dados</p>
+            <span class="tempo-estimado">⏰ 60-80 horas</span>
+          </div>
+          
+          <div class="topicos-section">
+            <h3 class="section-title">📚 O que você vai aprender:</h3>
+            <ul class="topicos-list">
+              <li>Biblioteca Pandas (manipulação de DataFrames)</li>
+              <li>Biblioteca NumPy (computação numérica)</li>
+              <li>Limpeza e tratamento de dados</li>
+              <li>Análise exploratória de dados (EDA)</li>
+              <li>Biblioteca Matplotlib para gráficos básicos</li>
+            </ul>
+          </div>
+
+          <div class="recursos-section">
+            <h3 class="section-title">🎯 Recursos para Estudar:</h3>
+            
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://blog.dsacademy.com.br/curso-gratuito-fundamentos-de-data-science-e-inteligencia-artificial/" target="_blank" class="recurso-nome">DSA - Fundamentos de Data Science e IA</a>
+                  <span class="recurso-tipo curso">Curso</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://www.coursera.org/learn/introducao-a-ciencia-e-engenharia-de-dados" target="_blank" class="recurso-nome">Coursera - Introdução à Ciência e Engenharia de Dados</a>
+                  <span class="recurso-tipo curso">Curso</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://www.coursera.org/learn/analise-de-dados-com-programacao-em-r" target="_blank" class="recurso-nome">Coursera - Análise de dados com programação em R</a>
+                  <span class="recurso-tipo curso">Curso</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://www.coursera.org/learn/fundamentos-dados-dados-em-todos-os-lugares" target="_blank" class="recurso-nome">Google - Fundamentos: dados, dados, em todos os lugares</a>
+                  <span class="recurso-tipo curso">Curso</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Degrau 8: Power BI -->
+        <section id="degrau8" class="tab-content">
+          <div class="degrau-header">
+            <h2 class="degrau-title">📈 Degrau 8: Power BI</h2>
+            <p class="degrau-description">Visualização de dados profissional</p>
+            <span class="tempo-estimado">⏰ 40-50 horas</span>
+          </div>
+          
+          <div class="topicos-section">
+            <h3 class="section-title">📚 O que você vai aprender:</h3>
+            <ul class="topicos-list">
+              <li>Interface do Power BI Desktop</li>
+              <li>Importação e tratamento de dados</li>
+              <li>Criação de gráficos e dashboards</li>
+              <li>DAX básico (medidas e colunas calculadas)</li>
+              <li>Publicação de relatórios</li>
+            </ul>
+          </div>
+
+          <div class="recursos-section">
+            <h3 class="section-title">🎯 Recursos para Estudar:</h3>
+            
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://learn.microsoft.com/pt-br/training/powerplatform/power-bi" target="_blank" class="recurso-nome">Microsoft Learn - Treinamento oficial do Power BI</a>
+                  <span class="recurso-tipo curso">Curso</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://learn.microsoft.com/pt-br/power-bi/fundamentals/service-get-started" target="_blank" class="recurso-nome">Microsoft - Tutorial Power BI</a>
+                  <span class="recurso-tipo tutorial">Tutorial</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://www.youtube.com/watch?v=QnCSgEsIHMA" target="_blank" class="recurso-nome">YouTube - Curso Básico de Power BI - Do Zero Ao Dashboard</a>
+                  <span class="recurso-tipo video">Vídeo</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://www.youtube.com/watch?v=ZIoOAsfKzVM" target="_blank" class="recurso-nome">YouTube - Aprenda Power BI em 10 Minutos</a>
+                  <span class="recurso-tipo video">Vídeo</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://www.youtube.com/watch?v=37oxzq2pSbI" target="_blank" class="recurso-nome">YouTube - Curso Básico Power BI 2025 - Aula 1</a>
+                  <span class="recurso-tipo video">Vídeo</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://www.ev.org.br/cursos/introducao-a-analise-de-dados-microsoft-power-bi" target="_blank" class="recurso-nome">Escola Virtual - Introdução à Análise de Dados - Microsoft Power BI</a>
+                  <span class="recurso-tipo curso">Curso</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Degrau 9: Estatística Avançada -->
+        <section id="degrau9" class="tab-content">
+          <div class="degrau-header">
+            <h2 class="degrau-title">📈 Degrau 9: Estatística Avançada</h2>
+            <p class="degrau-description">Conceitos estatísticos para Data Science</p>
+            <span class="tempo-estimado">⏰ 50-70 horas</span>
+          </div>
+          
+          <div class="topicos-section">
+            <h3 class="section-title">📚 O que você vai aprender:</h3>
+            <ul class="topicos-list">
+              <li>Distribuições de probabilidade</li>
+              <li>Testes de hipóteses</li>
+              <li>Correlação e regressão</li>
+              <li>Amostragem e intervalos de confiança</li>
+              <li>Estatística inferencial</li>
+            </ul>
+          </div>
+
+          <div class="recursos-section">
+            <h3 class="section-title">🎯 Recursos para Estudar:</h3>
+            
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://www.alura.com.br/artigos/estatistica-ciencia-de-dados" target="_blank" class="recurso-nome">Alura - O papel da estatística na Ciência de Dados</a>
+                  <span class="recurso-tipo artigo">Artigo</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://www.casadocodigo.com.br/products/livro-estatistica-datascience" target="_blank" class="recurso-nome">Casa do Código - Estatística para Ciência de Dados</a>
+                  <span class="recurso-tipo livro">Livro</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://www.datascienceacademy.com.br/course/matematica-e-estatistica-aplicada-para-data-science-machine-learning-e-ia" target="_blank" class="recurso-nome">DSA - Matemática e Estatística Aplicada Para Data Science</a>
+                  <span class="recurso-tipo curso">Curso</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://escola.omegadatascience.com.br/matematica/4/matematica-para-ciencia-de-dados/" target="_blank" class="recurso-nome">Ômega Data Science - Matemática para Ciência de Dados</a>
+                  <span class="recurso-tipo curso">Curso</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="http://leg.ufpr.br/~wagner/TMCD/" target="_blank" class="recurso-nome">UFPR - Tópicos em Matemática para Cientistas de Dados</a>
+                  <span class="recurso-tipo curso">Curso</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Degrau 10: Machine Learning -->
+        <section id="degrau10" class="tab-content">
+          <div class="degrau-header">
+            <h2 class="degrau-title">🤖 Degrau 10: Machine Learning</h2>
+            <p class="degrau-description">Introdução ao aprendizado de máquina</p>
+            <span class="tempo-estimado">⏰ 70-90 horas</span>
+          </div>
+          
+          <div class="topicos-section">
+            <h3 class="section-title">📚 O que você vai aprender:</h3>
+            <ul class="topicos-list">
+              <li>Conceitos fundamentais de ML</li>
+              <li>Aprendizado supervisionado vs não supervisionado</li>
+              <li>Algoritmos básicos (Regressão Linear, Decision Trees)</li>
+              <li>Métricas de avaliação</li>
+              <li>Validação cruzada</li>
+            </ul>
+          </div>
+
+          <div class="recursos-section">
+            <h3 class="section-title">🎯 Recursos para Estudar:</h3>
+            
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://learn.microsoft.com/pt-br/training/modules/introduction-to-machine-learning/" target="_blank" class="recurso-nome">Microsoft Learn - Introdução ao machine learning</a>
+                  <span class="recurso-tipo curso">Curso</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://learn.microsoft.com/pt-br/shows/machine-learning-for-beginners/introduction-to-machine-learning-for-beginners-machine-learning-for-beginners" target="_blank" class="recurso-nome">Microsoft Learn - ML para Iniciantes</a>
+                  <span class="recurso-tipo curso">Curso</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://www.youtube.com/watch?v=M82CPuy0skc" target="_blank" class="recurso-nome">YouTube - Aprenda Machine Learning do Zero</a>
+                  <span class="recurso-tipo video">Vídeo</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://www.youtube.com/watch?v=AQT1yLwHlnA" target="_blank" class="recurso-nome">YouTube - Aula 1 - Introdução ao Machine Learning</a>
+                  <span class="recurso-tipo video">Vídeo</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://developers.google.com/machine-learning/crash-course?hl=pt-br" target="_blank" class="recurso-nome">Google - Curso intensivo de machine learning</a>
+                  <span class="recurso-tipo curso">Curso</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://www.oracle.com/br/artificial-intelligence/machine-learning/what-is-machine-learning/" target="_blank" class="recurso-nome">Oracle - O que é Machine Learning?</a>
+                  <span class="recurso-tipo artigo">Artigo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Degrau 11: ML Prático -->
+        <section id="degrau11" class="tab-content">
+          <div class="degrau-header">
+            <h2 class="degrau-title">🚀 Degrau 11: ML Prático</h2>
+            <p class="degrau-description">Aplicação prática de Machine Learning</p>
+            <span class="tempo-estimado">⏰ 80-100 horas</span>
+          </div>
+          
+          <div class="topicos-section">
+            <h3 class="section-title">📚 O que você vai aprender:</h3>
+            <ul class="topicos-list">
+              <li>Biblioteca Scikit-learn</li>
+              <li>Pré-processamento de dados</li>
+              <li>Modelos de classificação e regressão</li>
+              <li>Seleção de features</li>
+              <li>Otimização de hiperparâmetros</li>
+            </ul>
+          </div>
+
+          <div class="recursos-section">
+            <h3 class="section-title">🎯 Recursos para Estudar:</h3>
+            
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://github.com/italojs/awesome-machine-learning-portugues" target="_blank" class="recurso-nome">GitHub - Awesome Machine Learning Português</a>
+                  <span class="recurso-tipo repositorio">Repositório</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://www.kaggle.com" target="_blank" class="recurso-nome">Kaggle - Projetos práticos para iniciantes</a>
+                  <span class="recurso-tipo plataforma">Plataforma</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://github.com/jplpereira/curso-em-video-exercicios-python" target="_blank" class="recurso-nome">GitHub - Exercícios Curso em Vídeo Python</a>
+                  <span class="recurso-tipo repositorio">Repositório</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Recursos Extras -->
+        <section id="extras" class="tab-content">
+          <div class="degrau-header">
+            <h2 class="degrau-title">🎯 Recursos Extras</h2>
+            <p class="degrau-description">Ferramentas, comunidades e recursos complementares</p>
+            <span class="tempo-estimado">⏰ Tempo variável</span>
+          </div>
+          
+          <div class="recursos-section">
+            <h3 class="section-title">👥 Comunidades:</h3>
+            
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://datahackers.com.br" target="_blank" class="recurso-nome">Data Hackers - Maior comunidade de dados do Brasil</a>
+                  <span class="recurso-tipo comunidade">Comunidade</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://python.org.br" target="_blank" class="recurso-nome">Python Brasil - Comunidade oficial Python</a>
+                  <span class="recurso-tipo comunidade">Comunidade</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="recursos-section">
+            <h3 class="section-title">📊 Datasets para Prática:</h3>
+            
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://www.kaggle.com/datasets" target="_blank" class="recurso-nome">Kaggle Datasets - Milhares de datasets</a>
+                  <span class="recurso-tipo plataforma">Plataforma</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://archive.ics.uci.edu/ml/index.php" target="_blank" class="recurso-nome">UCI Machine Learning Repository</a>
+                  <span class="recurso-tipo repositorio">Repositório</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="recursos-section">
+            <h3 class="section-title">🛠️ Ferramentas:</h3>
+            
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://colab.research.google.com" target="_blank" class="recurso-nome">Google Colab - Jupyter notebooks na nuvem</a>
+                  <span class="recurso-tipo ferramenta">Ferramenta</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="recurso-card">
+              <div class="recurso-header">
+                <input type="checkbox" class="recurso-checkbox">
+                <div class="recurso-info">
+                  <a href="https://www.anaconda.com" target="_blank" class="recurso-nome">Anaconda - Distribuição Python para Data Science</a>
+                  <span class="recurso-tipo ferramenta">Ferramenta</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
     </div>
 
     <!-- Footer -->
     <footer class="footer">
-      <p>Desenvolvido por: <em>J. Vitor Martins</em></p>
+      <div class="container">
+        <p>Desenvolvido por: <em>J. Vitor Martins</em></p>
+      </div>
     </footer>
   </div>
 </body>
